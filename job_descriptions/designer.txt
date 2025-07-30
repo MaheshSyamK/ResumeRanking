@@ -1,0 +1,18 @@
+Designer and Web Developer Job Description
+
+We are hiring a creative Designer and Web Developer to create visually appealing and functional digital solutions. Responsibilities include:
+- Designing UI/UX for websites and applications using Figma, Adobe XD, or Photoshop.
+- Developing responsive websites with HTML, CSS, JavaScript, and frameworks (React, Angular, Vue.js).
+- Implementing SEO best practices and RESTful APIs.
+- Creating graphic designs, wireframes, and prototypes.
+- Managing backend with Node.js, Django, or PHP.
+- Using version control (Git) and cloud platforms (AWS, Heroku).
+- Collaborating with teams to align designs with brand guidelines.
+
+Required Skills:
+- UI/UX design, graphic design, wireframing, prototyping
+- HTML, CSS, JavaScript, React, Node.js, Django
+- Figma, Adobe XD, Photoshop, SEO, RESTful APIs
+- Creativity, attention to detail, teamwork
+
+Experience: 2+ years in design and/or web development.

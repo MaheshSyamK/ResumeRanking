@@ -1,0 +1,19 @@
+Data Science and Data Analyst Job Description
+
+We are seeking a Data Scientist or Data Analyst to analyze complex datasets and drive data-driven decisions. Responsibilities include:
+- Developing machine learning models (regression, classification, clustering) for predictive analytics.
+- Analyzing data using Python, R, or SQL to generate actionable insights.
+- Creating visualizations and dashboards with Tableau, PowerBI, or Excel.
+- Managing big data platforms (Hadoop, Spark) and ETL pipelines.
+- Performing statistical analysis, business intelligence, and forecasting.
+- Querying databases with SQL for reporting and analytics.
+- Collaborating with stakeholders to identify business needs.
+- Implementing data cleaning and preprocessing techniques.
+
+Required Skills:
+- Python, R, SQL, machine learning, deep learning, business intelligence
+- Tableau, PowerBI, Excel, Hadoop, Spark, data visualization
+- Statistics, predictive modeling, ETL, data analysis, dashboard, reporting
+- Strong analytical, problem-solving, and communication skills
+
+Experience: 3+ years in data science, data analysis, or related fields.

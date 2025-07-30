@@ -1,0 +1,18 @@
+Business Analyst Job Description
+
+We are seeking a Business Analyst to bridge business needs and technical solutions. Responsibilities include:
+- Gathering and documenting requirements using SWOT analysis and stakeholder interviews.
+- Creating reports and dashboards with Excel, Tableau, or PowerBI.
+- Analyzing business processes and recommending improvements.
+- Querying databases with SQL for data insights.
+- Supporting project management with Agile or Scrum methodologies.
+- Facilitating communication between technical and non-technical teams.
+- Conducting financial analysis and forecasting.
+
+Required Skills:
+- Requirements gathering, SWOT analysis, process modeling
+- Excel, SQL, Tableau, PowerBI, business intelligence
+- Agile, Scrum, project management, financial analysis
+- Strong communication and analytical skills
+
+Experience: 3+ years in business analysis or related fields.

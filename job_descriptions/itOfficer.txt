@@ -1,0 +1,19 @@
+IT Officer Job Description
+
+We are seeking a skilled IT Officer to manage and maintain our organization's IT infrastructure. Responsibilities include:
+- Managing network systems, including LAN, WAN, and VPN configurations.
+- Ensuring cybersecurity through firewalls, antivirus, and intrusion detection systems.
+- Administering cloud platforms (AWS, Azure, GCP) and virtualization (VMware, Hyper-V).
+- Troubleshooting hardware and software issues for Windows and Linux systems.
+- Implementing ITIL best practices and maintaining system uptime.
+- Scripting in Python, Bash, or PowerShell for automation.
+- Managing databases (SQL, MySQL) and ensuring data integrity.
+- Supporting end-users with technical issues and training.
+
+Required Skills:
+- Network administration, cybersecurity, cloud computing
+- Linux, Windows, virtualization, SQL, Python, Bash
+- ITIL, DevOps, troubleshooting, AWS, Azure, VMware, Docker
+- Strong problem-solving and communication skills
+
+Experience: 3+ years in IT support or network administration.
