@@ -9,7 +9,6 @@ A professional tool to rank resumes based on their relevance to a job descriptio
 - **Supported Roles**: IT Officer, Teacher, Data Science (includes Data Analyst), Designer (includes Web Developer), Business Analyst.
 - **Supported Formats**: Processes PDF and DOCX resumes.
 - **Visual Insights**: Includes bar charts, histograms, and keyword match analysis for top resumes.
-- **Error Handling**: Skips unreadable files with structured JSON logging to `resume_ranking.log`.
 - **Performance Optimization**: Limits processing to 50 resumes, uses spaCy pipe for text cleaning, and caches job descriptions.
 - **Robustness**: Handles duplicate resume names and provides detailed error messages.
 
@@ -35,7 +34,6 @@ E:\ResumeRanking\
 │   ├── cv_businessAnalyst/ # Business Analyst resumes
 ├── main.py               # Entry point for Streamlit app
 ├── requirements.txt      # Project dependencies
-├── resume_ranking.log    # Structured JSON logs
 └── README.md             # Project documentation
 ```
 
@@ -96,8 +94,6 @@ E:\ResumeRanking\
      - Visualizations: Bar chart, histogram, top 3 comparison, and top resume keyword matches.
    - Download results as `resume_ranking_results.csv`.
 
-4. **Check Logs**:
-   - Review `E:\ResumeRanking\resume_ranking.log` for structured JSON logs (e.g., `{"event": "extract_text_success", "file_path": "resume1.pdf", ...}`).
 
 ## Expected Output
 For Data Science/Data Analyst resumes (e.g., two uploaded files):
@@ -105,80 +101,6 @@ For Data Science/Data Analyst resumes (e.g., two uploaded files):
 |--------------|---------------|
 | resume1.pdf  | 9.50          |
 | resume2.docx | 8.20          |
-
-## Debugging
-1. **IndexError in utils.py**:
-   - **Error**: `IndexError: list index out of range` at `logger.handlers[0].setFormatter(JsonFormatter())`.
-   - **Cause**: Logger has no handlers during initialization.
-   - **Fix**: Ensure `utils.py` adds a `FileHandler` before setting the formatter:
-     ```python
-     if not logger.handlers:
-         file_handler = logging.FileHandler('resume_ranking.log', mode='w')
-         logger.addHandler(file_handler)
-     ```
-   - **Verify**: Run `streamlit run main.py` and check `resume_ranking.log` for JSON entries.
-
-2. **Check `resume_ranking.log`**:
-   - Open `E:\ResumeRanking\resume_ranking.log`.
-   - Look for JSON entries with:
-     - `"event": "extract_text_start"`, `"no_text_extracted"`, or `"extract_timeout"` for text extraction issues.
-     - `"event": "clean_text_start"`, `"no_tokens"`, or `"clean_timeout"` for text cleaning issues.
-     - `"event": "compute_tfidf_start"`, `"tfidf_timeout"` for TF-IDF issues.
-   - Share the last 10-20 lines if issues occur.
-
-3. **Test Resume Extraction**:
-   - Save this script as `debug_resume.py` in `E:\ResumeRanking\`:
-     ```python
-     from app.utils import extract_text, clean_text, logger
-     import json
-     files = ["resume1.pdf", "resume2.docx"]  # Replace with your file names
-     for file in files:
-         path = f"temp_resumes_combined/{file}"
-         try:
-             text = extract_text(path)
-             logger.info(json.dumps({"event": "debug_extract", "filename": file, "text_length": len(text) if text else 0}))
-             print(f"{file} extracted: {text[:100]}...")
-             cleaned = clean_text(text, role="dataScience")
-             logger.info(json.dumps({"event": "debug_clean", "filename": file, "cleaned_length": len(cleaned) if cleaned else 0}))
-             print(f"{file} cleaned: {cleaned[:100]}...")
-         except Exception as e:
-             logger.error(json.dumps({"event": "debug_error", "filename": file, "error": str(e)}))
-             print(f"Error in {file}: {str(e)}")
-     ```
-   - Run it:
-     ```bash
-     python debug_resume.py
-     ```
-   - Check `resume_ranking.log` for errors.
-
-4. **Check File Content**:
-   - Open resumes in Adobe Acrobat (PDF) or Word (DOCX).
-   - Ensure they contain relevant terms (e.g., “Python”, “SQL” for dataScience).
-   - Convert image-based PDFs using [https://www.ilovepdf.com/](https://www.ilovepdf.com/).
-
-5. **Reduce Processing Load**:
-   - If slow, edit `scorer.py`:
-     ```python
-     max_resumes = 10  # Instead of 50
-     ```
-   - Re-run the app.
-
-## Troubleshooting
-1. **Glyph Warning**:
-   - If warnings like “Glyph 10060” appear:
-     ```bash
-     python -c "import matplotlib.font_manager; matplotlib.font_manager._rebuild()"
-     pip install --force-reinstall matplotlib==3.8.4
-     ```
-
-2. **Low Scores**:
-   - Ensure resumes mention role-specific skills (e.g., “machine learning”, “Excel” for dataScience).
-   - Verify `job_descriptions/<role>.txt` content.
-   - Check `resume_ranking.log` for extraction issues.
-
-3. **No Resumes Processed**:
-   - Confirm resumes are in `sample_data/cv_<role>/` or uploaded.
-   - Ensure files are text-based PDFs or DOCX.
 
 ## Notes
 - **Data Science Role**: The `cv_dataScience` folder includes Data Science and Data Analyst resumes, scored against `dataScience.txt`.
