@@ -111,12 +111,11 @@ def resume_interface():
         f"Upload {selected_role.title()} Resumes (PDF/DOCX)",
         accept_multiple_files=True,
         type=['pdf', 'docx'],
-        help=f"These will be ranked alongside resumes from {sample_resume_dir}."
+        help="Upload resumes here to be ranked."
     )
 
-    # Display file counts
-    sample_files = [f for f in os.listdir(sample_resume_dir) if f.endswith(('.pdf', '.docx'))] if os.path.exists(sample_resume_dir) else []
-    st.info(f"Found {len(sample_files)} resumes in {sample_resume_dir} and {len(uploaded_files)} uploaded resumes.")
+    # Display file counts (only uploaded ones now)
+    st.info(f"Uploaded {len(uploaded_files)} resumes.")
 
     if st.button("Rank Resumes", type="primary"):
         temp_dir = "temp_resumes_combined"
