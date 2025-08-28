@@ -42,10 +42,10 @@ def extract_text(file_path):
         if ext == ".pdf":
             text = ""
             with fitz.open(file_path) as doc:
-                if doc.page_count > 50:  # Skip very large PDFs
+                if doc.page_count > 5:  
                     return ""
                 for page in doc:
-                    if time.time() - start_time > 20:  # Timeout safeguard
+                    if time.time() - start_time > 20: 
                         return ""
                     text += page.get_text()
             return text if text.strip() else ""
